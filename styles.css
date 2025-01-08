@@ -1,2 +1,51 @@
-
 /* Your CSS Code here. */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.player__button {
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.progress {
+  width: 60%;
+  height: 5px;
+  background-color: #ccc;
+  position: relative;
+}
+
+.progress__filled {
+  height: 100%;
+  background-color: #3498db;
+}
+
+input[type="range"] {
+  width: 100px;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #3498db;
+  color: white;
+}
