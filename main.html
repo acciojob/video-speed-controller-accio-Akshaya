@@ -7,78 +7,19 @@
 </head>
 <body>
 
-  <div class="wrapper">
-    <video class="flex" width="765" height="430" src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" controls></video>
-    <div class="controls">
-      <button class="player__button">►</button>
-      <div class="progress">
-        <div class="progress__filled"></div>
-      </div>
-      <input type="range" class="volume" name="volume" min="0" max="1" step="0.01" value="1">
-      <input type="range" class="playbackSpeed" name="playbackSpeed" min="0.1" max="2" step="0.1" value="1">
-      <button class="rewind">« 10s</button>
-      <button class="skip">25s »</button>
-  </div>
+  <div class="player">
+        <video class="viewer" src="https://www.w3schools.com/html/mov_bbb.mp4"></video>
 
-<script  src="./script.js">
-  //Your code goes here
-	const video = document.getElementById('video');
-const playButton = document.querySelector('.player__button');
-const progress = document.querySelector('.progress');
-const progressFilled = document.querySelector('.progress__filled');
-const volumeInput = document.querySelector('.volume');
-const playbackSpeedInput = document.querySelector('.playbackSpeed');
-const rewindButton = document.querySelector('.rewind');
-const skipButton = document.querySelector('.skip');
-
-let isPlaying = false;
-
-// Toggle Play/Pause
-function togglePlayPause() {
-  if (isPlaying) {
-    video.pause();
-    playButton.textContent = '►'; // Play symbol
-  } else {
-    video.play();
-    playButton.textContent = '❚❚'; // Pause symbol
-  }
-  isPlaying = !isPlaying;
-}
-
-// Update Progress Bar
-function updateProgress() {
-  const progressPercent = (video.currentTime / video.duration) * 100;
-  progressFilled.style.width = `${progressPercent}%`;
-}
-
-// Set Video Volume
-function updateVolume() {
-  video.volume = volumeInput.value;
-}
-
-// Set Video Playback Speed
-function updatePlaybackSpeed() {
-  video.playbackRate = playbackSpeedInput.value;
-}
-
-// Rewind 10 seconds
-function rewind() {
-  video.currentTime -= 10;
-}
-
-// Skip 25 seconds
-function skip() {
-  video.currentTime += 25;
-}
-
-// Event Listeners
-playButton.addEventListener('click', togglePlayPause);
-video.addEventListener('timeupdate', updateProgress);
-volumeInput.addEventListener('input', updateVolume);
-playbackSpeedInput.addEventListener('input', updatePlaybackSpeed);
-rewindButton.addEventListener('click', rewind);
-skipButton.addEventListener('click', skip);
-
-</script>
+        <div class="controls">
+            <button class="player__button toggle" title="Toggle Play">►</button>
+            <input type="range" name="volume" class="volume" min="0" max="1" step="0.05" value="1">
+            <input type="range" name="playbackSpeed" class="playbackSpeed" min="0.5" max="2" step="0.1" value="1">
+            <button class="rewind" title="Rewind 10 seconds">« 10s</button>
+            <button class="forward" title="Forward 25 seconds">25s »</button>
+            <div class="progress">
+                <div class="progress__filled" style="flex-basis: 0%;"></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
